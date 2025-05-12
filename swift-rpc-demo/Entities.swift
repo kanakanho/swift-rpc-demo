@@ -206,7 +206,7 @@ struct Building: BaseEntity {
     }
 }
 
-struct EntitiyError: Codable {
+struct ErrorEntitiy: BaseEntity {
     private let message: String
     
     init(message: String) {
@@ -466,7 +466,7 @@ struct Entities {
     
     func error(message: String) {
         // エラーメッセージを生成
-        let errorMessage = EntitiyError(message: message)
+        let errorMessage = ErrorEntitiy(message: message)
         // エラーメッセージをエンコード
         let encoder = JSONEncoder()
         guard let request = try? encoder.encode(errorMessage) else {
